@@ -10,7 +10,7 @@ const TopBar = () => {
         See which bars are popular tonight!
       </div>
       <div className="nightlife-input-group">
-        <input className="nightlife-input" maxlength="100"/>
+        <input className="nightlife-input"/>
         <br/>
         <span>What city are you spending the evening in</span>
       </div>
