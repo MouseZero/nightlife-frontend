@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import TopBar from './top-bar'
 
 const App = (props) => {
     return (
-      <div className="bg">
-      Hello from component
-      {props.children}
+      <div id="app-component">
+        <TopBar/>
+        {props.children}
       </div>
     )
 }
@@ -15,3 +16,6 @@ App.propTypes = {
 }
 
 export default App
+
+
+

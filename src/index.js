@@ -6,6 +6,7 @@ import Root from './components/Root'
 import configureStore from './store/configureStore'
 import { syncHistoryWithStore } from 'react-router-redux'
 import './styles/main.scss'
+import '../node_modules/bootstrap/dist/css/bootstrap.css'
 require('./favicon.ico')
 
 import App from './components/App'
