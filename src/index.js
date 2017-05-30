@@ -9,8 +9,6 @@ import './styles/main.scss'
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
 require('./favicon.ico')
 
-import App from './components/App'
-
 const store = configureStore()
 const history = syncHistoryWithStore(browserHistory, store)
 
