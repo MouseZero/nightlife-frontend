@@ -27,6 +27,6 @@ if (module.hot) {
         <NewRoot store={store} history={history} />
       </AppContainer>,
       document.getElementById('app')
-    );
-  });
+    )
+  })
 }
