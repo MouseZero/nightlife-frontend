@@ -63,6 +63,27 @@ body, html {
   margin-top: 0.2em;
 }
 
+/*-- Small Devices -- */
+@media screen and (max-width: 700px) {
+  .title {
+    font-size: 2em;
+  }
+
+  .tag-line {
+    font-size: .8em;
+  }
+
+  .nightlife-input {
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width: 319px) {
+  .nightlife-input {
+    font-size: 1em;
+  }
+}
+
 /*------------------ Fonts ----------------*/
 /* latin-ext */
 @font-face {
