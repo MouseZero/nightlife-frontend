@@ -1,4 +1,4 @@
-import EasyRequests from './easy-requests.js'
+import EasyRequests from './easy-requests'
 import assert from 'assert'
 
 describe('easyRequest', () => {
@@ -16,5 +16,14 @@ describe('easyRequest', () => {
       'did not return json from fetch'
     )
   })
-  it('throws error if fetch throws error')
+  it('throws error if fetch throws error', async () => {
+    const fetch = () => Promise.reject(new Error('some error'))
+    let error
+    try {
+      await EasyRequests(fetch)()
+    } catch (e) { error = e }
+
+    if(!error) throw new Error('should have thrown an error')
+  })
+
 })
