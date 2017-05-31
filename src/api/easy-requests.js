@@ -1,5 +1,4 @@
 const easyRequest = fetch => async (body, url, method = 'POST') => {
-  console.log('you called easyRequest')
   let formBody = []
   for (let property in body) {
     var encodedKey = encodeURIComponent(property)
