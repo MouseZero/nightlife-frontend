@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TopBar = () => {
+const TopBar = ({ searchAction }) => {
   return (
     <div className="top-bar">
       <div className="title">
@@ -10,7 +10,7 @@ const TopBar = () => {
         See which bars are popular tonight!
       </div>
       <div className="nightlife-input-group">
-        <input className="nightlife-input"/>
+        <input id="bar-search" className="nightlife-input" onSubmit={searchAction} />
         <br/>
         <span>What city are you spending the evening in</span>
       </div>
