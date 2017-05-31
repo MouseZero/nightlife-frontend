@@ -1,4 +1,4 @@
-import EasyRequests from '../../src/api/easy-requests.js'
+import EasyRequests from './easy-requests.js'
 import assert from 'assert'
 
 describe('easyRequest', () => {
