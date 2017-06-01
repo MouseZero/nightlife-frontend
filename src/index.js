@@ -7,6 +7,7 @@ import Root from './components/Root'
 import configureStore from './store/configureStore'
 import { syncHistoryWithStore } from 'react-router-redux'
 import './styles/main.scss'
+import 'whatwg-fetch'
 require('./favicon.ico')
 
 const store = configureStore()
