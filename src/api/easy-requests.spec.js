@@ -1,17 +1,16 @@
-import EasyRequests from './easy-requests'
+import { easyRequest } from './easy-requests'
 import assert from 'assert'
 
 describe('easyRequest', () => {
   it('is a function', () => {
-    assert(typeof EasyRequests === 'function')
+    assert(typeof easyRequest === 'function')
   })
   it('returns json from fetch', async () => {
     const fetch = () => Promise.resolve({
       json: () => { return {test: "worked"} }
     })
-    const easyRequests = EasyRequests(fetch)
     assert.deepEqual(
-      await easyRequests(),
+      await easyRequest(fetch)(),
       {test: "worked"},
       'did not return json from fetch'
     )
@@ -20,7 +19,7 @@ describe('easyRequest', () => {
     const fetch = () => Promise.reject(new Error('some error'))
     let error
     try {
-      await EasyRequests(fetch)()
+      await easyRequest(fetch)()
     } catch (e) { error = e }
 
     if(!error) throw new Error('should have thrown an error')

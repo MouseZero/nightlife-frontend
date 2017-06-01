@@ -18,4 +18,6 @@ const easyRequest = fetch => async (body, url, method = 'POST') => {
   return await answer.json()
 }
 
-export default easyRequest
+export {
+  easyRequest
+}
