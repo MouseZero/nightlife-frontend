@@ -6,7 +6,7 @@ import sinon from 'sinon'
 
 describe('top-bar', () => {
   it('contains input field', () => {
-    const wrapper = shallow(<TopBar/>)
+    const wrapper = shallow(<TopBar searchAction={()=>{}} />)
     assert.equal(
       wrapper.find('input').length,
       1,
@@ -14,7 +14,7 @@ describe('top-bar', () => {
     )
   })
   it('contains a title', () => {
-    const wrapper = shallow(<TopBar/>)
+    const wrapper = shallow(<TopBar searchAction={()=>{}} />)
     assert.equal(
       wrapper.find('.title').length,
       1,
