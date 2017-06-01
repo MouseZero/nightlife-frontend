@@ -11,6 +11,5 @@ describe('<App>', () => {
       </App>
     )
     assert(wrapper.contains(<div id="test-child"/>))
-
   })
 })

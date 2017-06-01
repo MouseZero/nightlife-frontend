@@ -1,8 +1,8 @@
 const easyRequest = fetch => async (body, url, method = 'POST') => {
   let formBody = []
   for (let property in body) {
-    var encodedKey = encodeURIComponent(property)
-    var encodedValue = encodeURIComponent(body[property])
+    let encodedKey = encodeURIComponent(property)
+    let encodedValue = encodeURIComponent(body[property])
     formBody.push(encodedKey + '=' + encodedValue)
   }
   formBody = formBody.join('&')

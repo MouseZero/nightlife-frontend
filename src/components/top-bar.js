@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const TopBar = ({ searchAction }) => {
   return (
@@ -16,6 +17,10 @@ const TopBar = ({ searchAction }) => {
       </div>
     </div>
   )
+}
+
+TopBar.propTypes = {
+  searchAction: PropTypes.function
 }
 
 export default TopBar
