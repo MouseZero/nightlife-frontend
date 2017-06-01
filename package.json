@@ -20,7 +20,7 @@
     "prebuild": "npm run clean-dist && npm run lint && npm run test",
     "build": "babel-node tools/build.js && npm run open:dist",
     "tdd": "find ./src -name '*.spec.js' | xargs mocha -R min --require babel-polyfill --compilers js:babel-register -w",
-    "test": "find ./src -name '*.spec.js' | xargs mocha --require babel-polyfill --compilers js:babel-register",
+    "test": "find ./src -name '*.spec.js' | xargs mocha -R min --require babel-polyfill --compilers js:babel-register",
     "test2": "jest",
     "test:CI": "babel-node tools/testCi.js",
     "test:cover": "npm run test -- --coverage ",
