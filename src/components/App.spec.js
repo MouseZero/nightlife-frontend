@@ -7,10 +7,10 @@ describe('<App>', () => {
   it('renders children', () => {
     const wrapper = shallow(
       <App>
-          <div id="test-child"></div>
+        <div id="test-child"/>
       </App>
     )
-    assert(wrapper.contains(<div id="test-child"></div>))
+    assert(wrapper.contains(<div id="test-child"/>))
 
   })
 })
