@@ -3,13 +3,17 @@ import assert from 'assert'
 import sinon from 'sinon'
 
 describe('easy-requests', () => {
+  let fetch = sinon.spy(() => Promise.resolve({
+      json: () => { return {test: "worked"} }
+    })
+  )
+
+  afterEach(() => {
+    fetch.reset()
+  })
+
   describe('get', () => {
     it('calls fetch with the correct params', async () => {
-      const fetch = sinon.spy(() => Promise.resolve({
-          json: () => { return {test: "worked"} }
-        })
-      )
-
       await get(fetch)({
           foo: 'bar',
           baz: 'qux',
@@ -31,11 +35,6 @@ describe('easy-requests', () => {
     })
   })
   it('keeps url the same if no params are passed', async () => {
-      const fetch = sinon.spy(() => Promise.resolve({
-          json: () => { return {test: "worked"} }
-        })
-      )
-
       await get(fetch)({}, 'https://someurl.com')
 
       const arg1 = fetch.args[0][0]
@@ -53,12 +52,6 @@ describe('easy-requests', () => {
       )
     })
     it('calls fetch the correct way with token', async () => {
-      const fetch = sinon.spy(() => {
-          return Promise.resolve({
-            json: () => { return {} }
-          })
-        }
-      )
       await post(fetch)({
         user: 'bill',
         password: 'password'
@@ -80,12 +73,6 @@ describe('easy-requests', () => {
 
     })
     it('calls fetch the correct way without token', async () => {
-      const fetch = sinon.spy(() => {
-          return Promise.resolve({
-            json: () => { return {} }
-          })
-        }
-      )
       await post(fetch)({
         user: 'bill',
         password: 'password'
