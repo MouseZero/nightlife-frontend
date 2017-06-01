@@ -30,7 +30,17 @@ describe('easy-requests', () => {
       })
     })
   })
-  it('keeps url the same if no params are passed')
+  it('keeps url the same if no params are passed', async () => {
+      const fetch = sinon.spy(() => Promise.resolve({
+          json: () => { return {test: "worked"} }
+        })
+      )
+
+      await get(fetch)({}, 'https://someurl.com')
+
+      const arg1 = fetch.args[0][0]
+      assert.equal(arg1, 'https://someurl.com')
+  })
   describe('post', () => {
     it('returns json from fetch', async () => {
       const fetch = () => Promise.resolve({
