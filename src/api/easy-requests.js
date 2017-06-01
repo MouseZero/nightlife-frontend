@@ -1,23 +1,43 @@
-const easyRequest = fetch => async (body, url, method = 'POST') => {
+const _createFetchOptions = (method, token, body) => {
+  let headers = {
+    'Accept': 'application/json',
+    'Content-Type': 'application/x-www-form-urlencoded'
+  }
+  if (token) headers['x-access-token'] = token
+  return {
+    method,
+    headers,
+    body
+  }
+}
+
+const _createUrlEncodedBody = (objectBody) => {
   let formBody = []
-  for (let property in body) {
+  for (let property in objectBody) {
     let encodedKey = encodeURIComponent(property)
-    let encodedValue = encodeURIComponent(body[property])
+    let encodedValue = encodeURIComponent(objectBody[property])
     formBody.push(encodedKey + '=' + encodedValue)
   }
-  formBody = formBody.join('&')
+  return formBody.join('&')
+}
 
-  const answer = await fetch(url, {
-    method,
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    body: formBody
-  })
+const easyRequest = fetch => async (body, url, method = 'POST', token) => {
+  const formBody = _createUrlEncodedBody(body)
+  const fetchOptions = _createFetchOptions(method, token, formBody)
+  const answer = await fetch(url, fetchOptions)
   return await answer.json()
 }
 
+const post = fetch => (body, url, token) => easyRequest(fetch)(body, url, 'POST', token)
+
+const defaultExport = () => {
+  return {
+    post: post(fetch)
+  }
+}
+
 export {
-  easyRequest
+  defaultExport as default,
+  easyRequest,
+  post
 }
