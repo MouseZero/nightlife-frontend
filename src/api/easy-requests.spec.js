@@ -13,8 +13,9 @@ describe('post', () => {
       'did not return json from fetch'
     )
   })
+  it('calls fetch the correct way with token')
   it('calls fetch the correct way without token', async () => {
-    const fetch = sinon.spy((a, b) => {
+    const fetch = sinon.spy(() => {
         return Promise.resolve({
           json: () => { return {} }
         })
@@ -25,15 +26,17 @@ describe('post', () => {
       password: 'password'
     }, 'https://someurl.com')
 
-    assert(fetch.calledWith('https://someurl.com', {
+    const arg1 = fetch.args[0][0]
+    const arg2 = fetch.args[0][1]
+    assert.equal(arg1, 'https://someurl.com')
+    assert.deepEqual(arg2, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       body: 'user=bill&password=password'
-    }))
-
+    })
   })
   it('throws error if fetch throws error', async () => {
     const fetch = () => Promise.reject(new Error('some error'))
