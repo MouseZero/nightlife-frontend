@@ -56,6 +56,10 @@ body, html {
   text-align: center;
 }
 
+.nightlife-input::placeholder {
+  color: #444;
+}
+
 .nightlife-button {
   outline: 0;
   background-color: $accent-light;

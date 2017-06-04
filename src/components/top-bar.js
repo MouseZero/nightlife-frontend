@@ -13,9 +13,7 @@ const TopBar = ({ searchAction }) => {
           See which bars are popular tonight!
         </div>
         <div className="nightlife-input-group">
-          <input id="bar-search" className="nightlife-input" onSubmit={searchAction} />
-          <br/>
-          <span>What city are you spending the evening in</span>
+          <input id="bar-search" className="nightlife-input" placeholder="City" onSubmit={searchAction} />
         </div>
       </div>
     </div>
