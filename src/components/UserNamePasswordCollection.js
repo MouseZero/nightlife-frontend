@@ -1,5 +1,10 @@
-import React from 'react';
+import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import {
+  setUserInputAction,
+  setPasswordInputAction
+ } from '../actions/inputs'
 
 class UserNamePasswordCollection extends React.Component { constructor(props) {
     super(props)
@@ -8,21 +13,11 @@ class UserNamePasswordCollection extends React.Component { constructor(props) {
       password: ''
     }
     this.onSubmit = this.onSubmit.bind(this)
-    this.nameOnChange = this.nameOnChange.bind(this)
-    this.passwordOnChange = this.passwordOnChange.bind(this)
   }
 
   onSubmit(e){
     e.preventDefault()
     alert(this.state.name +' '+ this.state.password)
-  }
-
-  nameOnChange(event){
-    this.setState({name: event.target.value})
-  }
-
-  passwordOnChange(event){
-    this.setState({password: event.target.value})
   }
 
   render() {
@@ -32,16 +27,16 @@ class UserNamePasswordCollection extends React.Component { constructor(props) {
           <label to="user-name-input" className="label">User Name: </label>
           <input
             id="user-name-input"
-            value={this.state.name}
-            onChange={this.nameOnChange}
+            value={this.props.userName}
+            onChange={(e) => this.props.userOnChange(e.target.value)}
             type="text"
             className="nightlife-input"
           />
           <label to="user-password-input" className="label">Password</label>
           <input
             id="user-password-input"
-            value={this.state.password}
-            onChange={this.passwordOnChange}
+            value={this.props.password}
+            onChange={(e) => this.props.passwordOnChange(e.target.value)}
             className="nightlife-input"
             type="password"
           />
@@ -53,7 +48,25 @@ class UserNamePasswordCollection extends React.Component { constructor(props) {
 }
 
 UserNamePasswordCollection.propTypes = {
-  buttonText: PropTypes.string.isRequired
+  buttonText: PropTypes.string.isRequired,
+  password: PropTypes.string,
+  userName: PropTypes.string,
+  userOnChange: PropTypes.func,
+  passwordOnChange: PropTypes.func
 }
 
-export default UserNamePasswordCollection
+const mapStateToProps = (state) => {
+  return {
+    userName: state.userLogin.user,
+    password: state.userLogin.password
+  }
+}
+
+const dispatchToProps = (dispatch) => {
+  return {
+    userOnChange: (userName) => dispatch(setUserInputAction(userName)),
+    passwordOnChange: (password) => dispatch(setPasswordInputAction(password))
+  }
+}
+
+export default connect(mapStateToProps, dispatchToProps)(UserNamePasswordCollection)
