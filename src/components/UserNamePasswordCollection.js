@@ -6,18 +6,15 @@ import {
   setPasswordInputAction
  } from '../actions/inputs'
 
-class UserNamePasswordCollection extends React.Component { constructor(props) {
+class UserNamePasswordCollection extends React.Component {
+  constructor(props) {
     super(props)
-    this.state = {
-      name: '',
-      password: ''
-    }
     this.onSubmit = this.onSubmit.bind(this)
   }
 
   onSubmit(e){
     e.preventDefault()
-    alert(this.state.name +' '+ this.state.password)
+    alert(this.props.userName +' '+ this.props.password)
   }
 
   render() {

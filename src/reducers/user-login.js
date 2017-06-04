@@ -6,6 +6,11 @@ export default function(state = {}, action){
         user: action.user
       })
 
+    case 'SET_PASSWORD_INPUT':
+      return Object.assign({}, state, {
+        password: action.password
+      })
+
     default:
       return state
   }
