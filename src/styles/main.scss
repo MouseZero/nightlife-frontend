@@ -50,6 +50,27 @@ body, html {
   text-align: center;
 }
 
+.nightlife-button {
+  outline: 0;
+  background-color: #484848;
+  margin-top: 1em;
+  padding: 0.5em;
+  font-size: 1.5em;
+  color: #bbb;
+  border: none;
+  border-radius: 3em;
+}
+
+.nightlife-button:hover {
+  background-color: #555555;
+  box-shadow: 0 0px 8px 0 rgba(200, 200, 200, 0.4), 0 0px 20px 0 rgba(200, 200, 200, 0.4);
+}
+
+.nightlife-button:focus {
+  background-color: #333;
+  box-shadow: 0 0px 8px 0 rgba(200, 200, 200, 0.4), 0 0px 20px 0 rgba(200, 200, 200, 0.4);
+}
+
 .label {
   font-size: 2em;
   color: #999;
@@ -103,6 +124,18 @@ body, html {
   .nightlife-input {
     font-size: 1em;
   }
+}
+
+/*------------------ Input Form -------------------*/
+.outer-input-form {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.input-form {
+  display: flex;
+  flex-direction: column;
 }
 
 /*------------------ Fonts ----------------*/
