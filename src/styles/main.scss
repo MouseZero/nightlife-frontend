@@ -2,10 +2,15 @@ $black: #1C1C1C;
 $white: #ddd;
 $light: #484848;
 
+$accent-light: #84A987;
+$accent-medium: #648f67;
+$accent-dark: #5c835f;
+
 body, html {
   background-color: $black;
   color: #999;
   margin: 0;
+  padding: 0;
 }
 
 #app {
@@ -53,7 +58,7 @@ body, html {
 
 .nightlife-button {
   outline: 0;
-  background-color: #84A987;
+  background-color: $accent-light;
   margin-top: 1em;
   padding: 0.5em;
   font-size: 1.5em;
@@ -63,13 +68,12 @@ body, html {
 }
 
 .nightlife-button:hover {
-  background-color: #457849;
+  background-color: $accent-medium;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.4), 0 0px 20px 0 rgba(0, 0, 0, 0.4);
 }
 
 .nightlife-button:focus {
-  background-color: #246A29;
-  color: #84A987;
+  background-color: $accent-dark;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.4), 0 0px 20px 0 rgba(0, 0, 0, 0.4);
 }
 
