@@ -21,6 +21,7 @@
     "build": "babel-node tools/build.js && npm run open:dist",
     "tdd": "find ./src -name '*.spec.js' | xargs mocha -R min --require babel-polyfill --compilers js:babel-register -w",
     "test": "find ./src -name '*.spec.js' | xargs mocha -R min --require babel-polyfill --compilers js:babel-register",
+    "test:integration": "find ./src -name '*.integ.js' | xargs mocha -R min --require babel-polyfill --compilers js:babel-register",
     "test2": "jest",
     "test:CI": "babel-node tools/testCi.js",
     "test:cover": "npm run test -- --coverage ",
