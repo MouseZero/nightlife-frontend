@@ -19,7 +19,9 @@ const TopBar = ({ searchAction }) => {
         </div>
         <div className="login-group">
           <Link to="create/user">
-            Create User
+            <button className="nightlife-button">
+              Create User
+            </button>
           </Link>
         </div>
       </div>
