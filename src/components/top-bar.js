@@ -15,6 +15,10 @@ const TopBar = ({ searchAction }) => {
         <br/>
         <span>What city are you spending the evening in</span>
       </div>
+      <div className="login-group">
+        <button id="create-user" className="main-button">Create User</button>
+        <button id="login" className="main-button">Login</button>
+      </div>
     </div>
   )
 }
