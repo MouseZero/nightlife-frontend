@@ -17,13 +17,6 @@ const TopBar = ({ searchAction }) => {
           <br/>
           <span>What city are you spending the evening in</span>
         </div>
-        <div className="login-group">
-          <Link to="create/user">
-            <button className="nightlife-button">
-              Create User
-            </button>
-          </Link>
-        </div>
       </div>
     </div>
   )

@@ -1,27 +1,29 @@
+$black: #1C1C1C;
+$white: #ddd;
+$light: #484848;
+
 body, html {
-  background-color: #383838;
-  // height: 100%;
+  background-color: $black;
+  color: #999;
   margin: 0;
 }
 
 #app {
   background-color: #383838;
-  // height: 100%;
 }
 
 #app-component {
-  // height: 100%;
 }
 
 /*------------------ Top Menu ----------------*/
 .top-bar {
-  background-color: #484848;
+  background-color: $light;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 1em;
   padding-bottom: 2em;
-  color: white;
+  color: $white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -35,11 +37,10 @@ body, html {
   text-align: center;
   font-size: 1.2em;
   font-family: 'Titillium Web', sans-serif;
-  // padding-bottom: 2em;
 }
 
 .nightlife-input {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #1C1C1C;
   color: #999;
   padding: 0.2em;
   border: none;
@@ -132,6 +133,7 @@ body, html {
   display: flex;
   width: 100%;
   justify-content: center;
+  padding-bottom: 2em;
 }
 
 .input-form {
@@ -155,4 +157,10 @@ body, html {
   font-weight: 200;
   src: local('Titillium Web ExtraLight'), local('TitilliumWeb-ExtraLight'), url(https://fonts.gstatic.com/s/titilliumweb/v5/anMUvcNT0H1YN4FII8wprwWgvz7nq97YPMIWeoEnHDE.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+
+/*------------------ Bottom Bar ----------------*/
+#bottom-bar-container {
+  background-color: $black;
 }
