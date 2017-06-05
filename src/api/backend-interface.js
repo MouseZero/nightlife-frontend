@@ -1,11 +1,10 @@
-import { post, get } from './easy-requests'
+import easyRequest from './easy-requests'
 import fetch from 'node-fetch'
-const doPost = post(fetch)
-const doGet = get(fetch)
+const { post, get, remove } = easyRequest(fetch)
 const BASEURL = process.env.BACKEND_URL
 
 const createUser = (baseurl) => (userName, password) => {
-  return doPost({
+  return post({
     name: userName,
     password
   },
@@ -14,11 +13,18 @@ const createUser = (baseurl) => (userName, password) => {
 }
 
 const authenticate = (baseurl) => (userName, password) => {
-  return doPost({
+  return post({
     user: userName,
     password
   },
   baseurl + 'authenticate'
+  )
+}
+
+const removeUser = (baseurl) => (token) => {
+  return remove({},
+  baseurl + 'users',
+  token
   )
 }
 
@@ -31,5 +37,6 @@ const backendInterface = {
 export {
   backendInterface as default,
   createUser,
-  authenticate
+  authenticate,
+  removeUser
 }

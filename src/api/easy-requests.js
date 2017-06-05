@@ -27,22 +27,21 @@ const _easyRequest = fetch => async (body, url, method, token) => {
   return await answer.json()
 }
 
-const post = fetch => (body, url, token) =>
+const _post = fetch => (body, url, token) =>
   _easyRequest(fetch)(body, url, 'POST', token)
 
-const get = fetch => (body, url, token) =>
+const _get = fetch => (body, url, token) =>
   _easyRequest(fetch)(body, url, 'GET', token)
 
-const defaultExport = () => {
-  //here it would be getting the global fetch in the browser
+const _remove = fetch => (body, url, token) =>
+  _easyRequest(fetch)(body, url, 'DELETE', token)
+
+const easyRequest = (fetch) => {
   return {
-    post: post(fetch),
-    get: get(fetch)
+    post: _post(fetch),
+    get: _get(fetch),
+    remove: _remove(fetch)
   }
 }
 
-export {
-  defaultExport as default,
-  post,
-  get
-}
+export default easyRequest

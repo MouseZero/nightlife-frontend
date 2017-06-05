@@ -1,6 +1,7 @@
 import {
   createUser,
-  authenticate
+  authenticate,
+  removeUser
 } from './backend-interface'
 import assert from 'assert'
 const BACKEND_URL = 'http://localhost:3033/'
@@ -23,11 +24,21 @@ describe('backend-interface', () => {
       try {
         const result = await authenticate(BACKEND_URL)('test', 'password')
         TOKEN = result.token
-        console.log(TOKEN)
         assert(result.success, 'should have authenticated user')
       } catch (error) {
         assert(false,
         'Threw an error while trying to authenticate user')
+      }
+    })
+  })
+  describe('removeUser', () => {
+    it('should delete user', async () => {
+      try {
+        const result = await removeUser(BACKEND_URL)(TOKEN)
+        assert(result.success, 'should have deleted user')
+      } catch (error) {
+        assert(false,
+        'Threw an error while trying to delete user')
       }
     })
   })
