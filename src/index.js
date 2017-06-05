@@ -8,7 +8,10 @@ import configureStore from './store/configureStore'
 import { syncHistoryWithStore } from 'react-router-redux'
 import './styles/main.scss'
 import 'whatwg-fetch'
+import environmentCheck from './util/environmentCheck'
 require('./favicon.ico')
+
+environmentCheck()
 
 const store = configureStore()
 const history = syncHistoryWithStore(browserHistory, store)
