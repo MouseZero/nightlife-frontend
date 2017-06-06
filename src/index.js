@@ -9,7 +9,6 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import './styles/main.scss'
 import 'whatwg-fetch'
 import environmentCheck from './util/environmentCheck'
-require('./favicon.ico')
 
 environmentCheck()
 
