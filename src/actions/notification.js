@@ -1,7 +1,8 @@
-const notification = (msg) => {
+const notification = (msg, notificationType = 'good') => {
   return {
     type: 'NOTIFICATION',
-    msg
+    msg,
+    notificationType
   }
 }
 

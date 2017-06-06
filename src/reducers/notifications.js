@@ -3,12 +3,14 @@ export default function(state = {}, action){
 
     case 'NOTIFICATION':
       return Object.assign({}, state, {
-        notification: action.msg
+        text: action.msg,
+        type: action.notificationType
       })
 
     case 'NOTIFICATION_CLEAR':
       return Object.assign({}, state, {
-        notification: ''
+        text: '',
+        type: ''
       })
 
     default:

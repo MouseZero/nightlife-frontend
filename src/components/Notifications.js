@@ -2,23 +2,23 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-const Notification = ({type, msg}) => {
+const Notification = ({type, text}) => {
   return (
-    <div className={type}>
-      {msg}
+    <div className={'notification ' + type}>
+      {text}
     </div>
   )
 }
 
 Notification.propTypes = {
   type: PropTypes.string,
-  msg: PropTypes.string
+  text: PropTypes.string
 }
 
 const mapStateToProps = ({notifications}) => {
   return {
-    type: 'notification',
-    msg: notifications.notification
+    type: notifications.type,
+    text: notifications.text
   }
 }
 
