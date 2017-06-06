@@ -14,7 +14,8 @@ class UserNamePasswordCollection extends React.Component {
 
   onSubmit(e){
     e.preventDefault()
-    alert(this.props.userName +' '+ this.props.password)
+    const { onSubmit, userName, password } = this.props
+    onSubmit(userName, password)
   }
 
   render() {
@@ -49,7 +50,8 @@ UserNamePasswordCollection.propTypes = {
   password: PropTypes.string,
   userName: PropTypes.string,
   userOnChange: PropTypes.func,
-  passwordOnChange: PropTypes.func
+  passwordOnChange: PropTypes.func,
+  onSubmit: PropTypes.func
 }
 
 const mapStateToProps = (state) => {
