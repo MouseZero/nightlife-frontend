@@ -13,7 +13,6 @@ const createUser = (userName, password) => {
   return (dispatch) => {
     backendInterface.createUser(userName, password)
     .then(({success, message}) => {
-      console.log(success)
       if (success) {
         dispatch(notification(message))
       } else {
