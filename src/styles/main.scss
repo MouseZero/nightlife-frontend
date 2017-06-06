@@ -171,21 +171,23 @@ body, html {
 .notification {
   text-align: center;
   color: $black;
-  padding: 1em;
   border: 1px solid $black
 
 }
 
 .good {
   background-color: #448844;
+  padding: 1em;
 }
 
 .warn {
   background-color: #bbbb22;
+  padding: 1em;
 }
 
 .error {
-  background-color: #994444
+  background-color: #994444;
+  padding: 1em;
 }
 
 /*------------------ Bottom Bar ----------------*/
