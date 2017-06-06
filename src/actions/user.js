@@ -1,28 +1,17 @@
 import backendInterface from '../api/backend-interface'
+import { notificationClear, notification } from './notification'
 
-const notification = (msg) => {
-  return {
-    type: 'NOTIFICATION',
-    msg
-  }
-}
-
-const notificationClear = () => {
-  return {
-    type: 'NOTIFICATION_CLEAR'
-  }
-}
-
-const resetNotificationInTime = (dispatch) => new Promise((resolve, reject) => {
+const resetNotificationInTime = (dispatch) => new Promise((resolve) => {
   setTimeout(() => {
     dispatch(notificationClear())
+    resolve('success')
   }, 5000)
 })
 
 const createUser = (userName, password) => {
   return (dispatch) => {
     backendInterface.createUser(userName, password)
-    .then(x => {
+    .then(() => {
       dispatch(notification('Created User ' + userName))
       return resetNotificationInTime(dispatch)
     })
