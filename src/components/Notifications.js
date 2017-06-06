@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 const Notification = ({type, msg}) => {
   return (
@@ -9,10 +10,15 @@ const Notification = ({type, msg}) => {
   )
 }
 
-const mapStateToProps = (state) => {
+Notification.propTypes = {
+  type: PropTypes.string,
+  msg: PropTypes.string
+}
+
+const mapStateToProps = ({notifications}) => {
   return {
     type: 'notification',
-    msg: 'This is a test message'
+    msg: notifications.notification
   }
 }
 
