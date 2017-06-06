@@ -33,6 +33,7 @@
   "author": "Cory House",
   "license": "MIT",
   "dependencies": {
+    "dotenv-webpack": "1.5.0",
     "object-assign": "4.1.0",
     "react": "15.5.4",
     "react-dom": "15.5.4",
