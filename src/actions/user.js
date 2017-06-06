@@ -2,6 +2,13 @@ import backendInterface from '../api/backend-interface'
 import { notificationClear, notification } from './notification'
 import { notificationTypes } from '../constants/notifications'
 
+const setToken = (token) => {
+  return {
+    type: 'SET_TOKEN',
+    token
+  }
+}
+
 const resetNotificationInTime = (dispatch) => new Promise((resolve) => {
   setTimeout(() => {
     dispatch(notificationClear())
@@ -27,6 +34,28 @@ const createUser = (userName, password) => {
   }
 }
 
+const authenticate = (userName, password) => {
+  return (dispatch) => {
+    backendInterface.authenticate(userName, password)
+    .then(({success, token, message}) => {
+      if (success) {
+        dispatch(notification('Login Successful'))
+        sessionStorage.setItem('token', token)
+        dispatch(setToken(token))
+      } else {
+        message = message || 'Could not login'
+        dispatch(notification(message), notificationTypes.ERROR)
+      }
+      return resetNotificationInTime(dispatch)
+    })
+    .catch(() => {
+      dispatch(notification('Could not login', notificationTypes.ERROR))
+      return resetNotificationInTime(dispatch)
+    })
+  }
+}
+
 export {
-  createUser
+  createUser,
+  authenticate
 }

@@ -1,11 +1,23 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import UserNamePasswordCollection from './UserNamePasswordCollection'
+import { authenticate } from '../actions/user'
 
-const Login = () => {
+const Login = (props) => {
   return (
-    <div>
-      Login Page
-    </div>
+    <UserNamePasswordCollection
+      buttonText="Login"
+      onSubmit={props.authenticate}
+    />
   )
 }
 
-export default Login
+const mapDispatchToProps = (dispatch) => {
+  return {
+    authenticate: function (userName, password) {
+      dispatch(authenticate(userName, password))
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Login)

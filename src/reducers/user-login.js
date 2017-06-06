@@ -11,6 +11,11 @@ export default function(state = {user: '', password: ''}, action){
         password: action.password
       })
 
+    case 'SET_TOKEN':
+      return Object.assign({}, state, {
+        token: action.token
+      })
+
     default:
       return state
   }
