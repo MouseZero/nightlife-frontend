@@ -19,7 +19,6 @@ action){
       })
 
     case 'LOGOUT':
-      console.log('really trying to LOGOUT')
       return Object.assign({}, state,{
         token: ''
       })
