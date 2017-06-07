@@ -1,7 +1,8 @@
 import {
   createUser,
   authenticate,
-  removeUser
+  removeUser,
+  search
 } from './backend-interface'
 import assert from 'assert'
 const BACKEND_URL = 'http://localhost:3033/'
@@ -11,7 +12,8 @@ let TOKEN = ''
 These test have a temporal coupling meaning some of them
 have to be in order.*/
 
-context('Warning -- temporal coupling', () => {
+context('Warning -- temporal coupling', function() {
+  this.timeout(20000)
   describe('backend-interface', () => {
     describe('createUser', () => {
       it('Should be able to create user', async () => {
@@ -33,6 +35,17 @@ context('Warning -- temporal coupling', () => {
         } catch (error) {
           assert(false,
           'Threw an error while trying to authenticate user')
+        }
+      })
+    })
+    describe('search', () => {
+      it('should get search results', async () => {
+        try {
+          const result = await search(BACKEND_URL)('irvine', TOKEN)
+          assert(result.success, 'should have had a successful search')
+        } catch (error) {
+          assert(false,
+          'Threw an error while it was trying to search for bars')
         }
       })
     })

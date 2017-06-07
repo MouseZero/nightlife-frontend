@@ -21,6 +21,14 @@ const authenticate = (baseurl) => (userName, password) => {
   )
 }
 
+const search = (baseurl) => (location, token) => {
+  return get({
+    location
+  },
+  baseurl + 'search',
+  token)
+}
+
 const removeUser = (baseurl) => (token) => {
   return remove({},
   baseurl + 'users',
@@ -38,5 +46,6 @@ export {
   backendInterface as default,
   createUser,
   authenticate,
-  removeUser
+  removeUser,
+  search
 }
