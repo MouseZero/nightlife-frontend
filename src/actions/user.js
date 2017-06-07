@@ -62,9 +62,24 @@ const authenticate = (userName, password) => {
   }
 }
 
+const search = (location, token) => {
+  console.log('got to search in action creator')
+  return () => {}
+  // return (dipatch) => {
+  //   backendInterface.search(location, token)
+  //   .then(({success, businesses}) => {
+  //     console.log(success)
+  //     console.log(businesses)
+  //   })
+  //   .catch(x => console.log(x))
+  // }
+}
+
+
 export {
   createUser,
   authenticate,
   logout,
-  setToken
+  setToken,
+  search
 }

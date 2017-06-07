@@ -3,11 +3,13 @@
  import { routerReducer } from 'react-router-redux'
  import userLogin from './user-login'
  import notifications from './notifications'
+ import search from './search'
 
  const rootReducer = combineReducers({
    routing: routerReducer,
    userLogin,
-   notifications
+   notifications,
+   search
  })
 
  export default rootReducer

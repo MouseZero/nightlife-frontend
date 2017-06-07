@@ -38,7 +38,8 @@ const removeUser = (baseurl) => (token) => {
 
 const backendInterface = {
   createUser: createUser(BASEURL),
-  authenticate: authenticate(BASEURL)
+  authenticate: authenticate(BASEURL),
+  search: search(BASEURL)
 }
 
 
