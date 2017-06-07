@@ -65,5 +65,6 @@ const authenticate = (userName, password) => {
 export {
   createUser,
   authenticate,
-  logout
+  logout,
+  setToken
 }

@@ -1,19 +1,38 @@
 import React from 'react'
 import LoginButtons from './BottomBar/LoginButtons'
 import LogoutButton from './BottomBar/LogoutButton'
+import { setToken } from '../actions/user'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
-const content = (token) => {
-  if (!token) return <LoginButtons/>
-  return <LogoutButton/>
+class BottomBar extends React.Component {
+  constructor(props){
+    super(props)
+    this.content = this.content.bind(this)
+  }
+
+  componentWillMount() {
+    const token = sessionStorage.getItem('token')
+    if (token) this.props.setToken(token)
+  }
+
+  content(token) {
+    if (!token) return <LoginButtons/>
+    return <LogoutButton/>
+  }
+
+  render() {
+    return (
+      <div id="bottom-bar-container">
+        {this.content(this.props.token)}
+      </div>
+    )
+  }
 }
 
-const BottomBar = ({token}) => {
-  return (
-    <div id="bottom-bar-container">
-      {content(token)}
-    </div>
-  )
+BottomBar.propTypes = {
+  token: PropTypes.string,
+  setToken: PropTypes.func
 }
 
 const mapStateToProps = (state) => {
@@ -22,4 +41,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(BottomBar)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setToken: (token) => dispatch(setToken(token))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BottomBar)

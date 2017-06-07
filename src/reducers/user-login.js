@@ -1,4 +1,6 @@
-export default function(state = {user: '', password: ''}, action){
+export default function(
+state = {user: '', password: '', token: ''},
+action){
   switch(action.type){
 
     case 'SET_USER_INPUT':
