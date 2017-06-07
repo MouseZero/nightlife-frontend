@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { search } from '../actions/user'
-import { setSearchInput } from '../actions/search'
+import { setSearchInput, searchAction } from '../actions/search'
 
 class TopBar extends React.Component {
   constructor(props){
@@ -12,7 +12,7 @@ class TopBar extends React.Component {
   }
   onSubmit(event) {
     event.preventDefault()
-    console.log(this.props.locationText)
+    this.props.search(this.props.locationText, this.props.token)
   }
 
   setInputUpdate(event) {
@@ -53,14 +53,15 @@ TopBar.propTypes = {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    search: (location, token) => dispatch(search(location, token)),
-    setLocationInput: (location) => dispatch(setSearchInput(location))
+    search: (location, token) => dispatch(searchAction(location, token)),
+    setLocationInput: (location) => dispatch(setSearchInput(location)),
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    locationText: state.search.locationInput
+    locationText: state.search.locationInput,
+    token: state.userLogin.token
   }
 }
 

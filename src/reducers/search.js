@@ -6,6 +6,11 @@ export default function(state = {locationInput: ''}, action) {
         locationInput: action.location
       })
 
+    case 'SET_BUSINESSES':
+      return Object.assign({}, state, {
+        businesses: action.businesses
+      })
+
     default:
       return state
   }
