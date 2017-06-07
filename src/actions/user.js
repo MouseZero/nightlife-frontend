@@ -9,6 +9,13 @@ const setToken = (token) => {
   }
 }
 
+const logout = () => {
+  sessionStorage.removeItem('token')
+  return {
+    type: 'LOGOUT'
+  }
+}
+
 const resetNotificationInTime = (dispatch) => new Promise((resolve) => {
   setTimeout(() => {
     dispatch(notificationClear())
@@ -57,5 +64,6 @@ const authenticate = (userName, password) => {
 
 export {
   createUser,
-  authenticate
+  authenticate,
+  logout
 }

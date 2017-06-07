@@ -16,6 +16,12 @@ export default function(state = {user: '', password: ''}, action){
         token: action.token
       })
 
+    case 'LOGOUT':
+      console.log('really trying to LOGOUT')
+      return Object.assign({}, state,{
+        token: ''
+      })
+
     default:
       return state
   }

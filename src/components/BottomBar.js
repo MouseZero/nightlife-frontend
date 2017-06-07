@@ -1,23 +1,25 @@
 import React from 'react'
-import { Link } from 'react-router'
+import LoginButtons from './BottomBar/LoginButtons'
+import LogoutButton from './BottomBar/LogoutButton'
+import { connect } from 'react-redux'
 
-const BottomBar = () => {
+const content = (token) => {
+  if (!token) return <LoginButtons/>
+  return <LogoutButton/>
+}
+
+const BottomBar = ({token}) => {
   return (
     <div id="bottom-bar-container">
-      <div className="login-group">
-        <Link to="/create/user">
-          <button className="nightlife-button bottom-button">
-            Create User
-          </button>
-        </Link>
-        <Link to="/login">
-          <button className="nightlife-button bottom-button">
-            Login
-          </button>
-        </Link>
-      </div>
+      {content(token)}
     </div>
   )
 }
 
-export default BottomBar
+const mapStateToProps = (state) => {
+  return {
+    token: state.userLogin.token
+  }
+}
+
+export default connect(mapStateToProps)(BottomBar)
