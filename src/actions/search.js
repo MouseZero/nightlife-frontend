@@ -18,7 +18,6 @@ const setBusinesses = (businesses) => {
 const searchAction = (location, token) => (dispatch) => {
   backendInterface.search(location, token)
   .then(({success, result, message}) => {
-    console.log(Object.keys(result))
     if (success) {
       dispatch(setBusinesses(result.businesses))
     } else {
