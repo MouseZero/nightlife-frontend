@@ -4,38 +4,19 @@ import { connect } from 'react-redux'
 import { search } from '../actions/user'
 import { setSearchInput } from '../actions/search'
 
-/*
-
-TODO
-
-need to attache this input box to redux then create an action for searching
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
-
 class TopBar extends React.Component {
   constructor(props){
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
-    this.inputUpdate = this.inputUpdate.bind(this)
+    this.setInputUpdate = this.setInputUpdate.bind(this)
   }
   onSubmit(event) {
+    event.preventDefault()
+    console.log(this.props.locationText)
   }
 
-  inputUpdate(event) {
-    this.props.locationInput(event.target.value)
+  setInputUpdate(event) {
+    this.props.setLocationInput(event.target.value)
   }
 
   render() {
@@ -54,7 +35,7 @@ class TopBar extends React.Component {
               id="bar-search"
               className="nightlife-input"
               placeholder="City"
-              onChange={this.inputUpdate}
+              onChange={this.setInputUpdate}
             />
           </form>
         </div>
@@ -66,14 +47,21 @@ class TopBar extends React.Component {
 
 TopBar.propTypes = {
   search: PropTypes.func,
-  locationInput: PropTypes.func
+  setLocationInput: PropTypes.func,
+  locationText: PropTypes.string
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     search: (location, token) => dispatch(search(location, token)),
-    locationInput: (location) => dispatch(setSearchInput(location))
+    setLocationInput: (location) => dispatch(setSearchInput(location))
   }
 }
 
-export default connect(null, mapDispatchToProps)(TopBar)
+const mapStateToProps = (state) => {
+  return {
+    locationText: state.search.locationInput
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TopBar)

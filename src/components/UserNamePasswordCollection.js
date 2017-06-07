@@ -38,7 +38,11 @@ class UserNamePasswordCollection extends React.Component {
             className="nightlife-input"
             type="password"
           />
-          <button id="submit" className="nightlife-button" onSubmit={this.onSubmit}>{this.props.buttonText}</button>
+          <button
+            id="submit"
+            className="nightlife-button"
+            onSubmit={this.onSubmit}>{this.props.buttonText}
+          </button>
         </form>
       </div>
     )
@@ -68,4 +72,7 @@ const dispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, dispatchToProps)(UserNamePasswordCollection)
+export default connect(
+  mapStateToProps,
+  dispatchToProps
+  )(UserNamePasswordCollection)
