@@ -1,4 +1,6 @@
-export default function(state = {locationInput: ''}, action) {
+export default function(
+state = {locationInput: '', businesses: []},
+action) {
   switch(action.type) {
 
     case 'SET_LOCATION_INPUT':
