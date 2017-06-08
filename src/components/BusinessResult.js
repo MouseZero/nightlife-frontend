@@ -59,7 +59,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  return Object.assigne({},
+  return Object.assign({},
     stateProps,
     dispatchProps,
     ownProps
