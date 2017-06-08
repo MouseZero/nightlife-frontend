@@ -29,6 +29,15 @@ const search = (baseurl) => (location, token) => {
   token)
 }
 
+const goingToBar = (baseurl) => (bar_id, token) => {
+  return post({
+    bar_id
+  },
+  baseurl + 'search',
+  token
+  )
+}
+
 const removeUser = (baseurl) => (token) => {
   return remove({},
   baseurl + 'users',
@@ -39,7 +48,8 @@ const removeUser = (baseurl) => (token) => {
 const backendInterface = {
   createUser: createUser(BASEURL),
   authenticate: authenticate(BASEURL),
-  search: search(BASEURL)
+  search: search(BASEURL),
+  goingToBar: goingToBar(BASEURL)
 }
 
 
@@ -48,5 +58,6 @@ export {
   createUser,
   authenticate,
   removeUser,
-  search
+  search,
+  goingToBar
 }

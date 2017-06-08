@@ -1,9 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import backendInterface from '../api/backend-interface'
+const { goingToBar } = backendInterface
 
 const BusinessResult = ({info}) => {
   const {
+    id,
     name,
     display_phone,
     image_url,
@@ -23,13 +26,18 @@ const BusinessResult = ({info}) => {
             </div>
             <div className="bar-status">
               <div>
-                People Going: {users_going}
+                Users Going {users_going}
               </div>
               <div>
                 Phone: {display_phone}
               </div>
               <div>
                 {(is_closed) ? 'Closed' : 'Open'}
+              </div>
+              <div>
+                <button className="nightlife-button">
+                Going
+                </button>
               </div>
             </div>
           </div>
@@ -43,9 +51,22 @@ BusinessResult.propTypes = {
 }
 
 const mapStateToProps = (state) => {
-return {}
+  return {}
 }
 const mapDispatchToProps = (dispatch) => {
-return {}
+  return {
+    setGoing: (id) => dispatch(gointToBar(id, ))
+  }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(BusinessResult)
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  return Object.assigne({},
+    stateProps,
+    dispatchProps,
+    ownProps
+  )
+}
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+  mergeProps)
+  (BusinessResult)
