@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import backendInterface from '../api/backend-interface'
-const { goingToBar } = backendInterface
+import { setGoing } from '../actions/search'
 
-const BusinessResult = ({info}) => {
+const BusinessResult = ({info, setGoing, token}) => {
   const {
     id,
     name,
@@ -35,7 +34,10 @@ const BusinessResult = ({info}) => {
                 {(is_closed) ? 'Closed' : 'Open'}
               </div>
               <div>
-                <button className="nightlife-button">
+                <button
+                  className="nightlife-button"
+                  onClick={() => setGoing(id, token)}
+                >
                 Going
                 </button>
               </div>
@@ -47,26 +49,22 @@ const BusinessResult = ({info}) => {
   )
 }
 BusinessResult.propTypes = {
-  info: PropTypes.object
+  info: PropTypes.object,
+  setGoing: PropTypes.func,
+  token: PropTypes.string
 }
 
 const mapStateToProps = (state) => {
-  return {}
+  return {
+    token: state.userLogin.token
+  }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    setGoing: (id) => dispatch(gointToBar(id, ))
+    setGoing: (bar_id, token) => dispatch(setGoing(bar_id, token))
   }
-}
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  return Object.assign({},
-    stateProps,
-    dispatchProps,
-    ownProps
-  )
 }
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
-  mergeProps)
-  (BusinessResult)
+  mapDispatchToProps
+)(BusinessResult)

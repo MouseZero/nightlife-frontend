@@ -1,5 +1,5 @@
 import backendInterface from '../api/backend-interface'
-import { notifyError } from './notification'
+import { notifyError, notifyGood } from './notification'
 
 const setSearchInput = (location) => {
   return {
@@ -27,7 +27,20 @@ const searchAction = (location, token) => (dispatch) => {
   .catch(() => notifyError('Was not able to search', dispatch))
 }
 
+const setGoing = (bar_id, token) => (dispatch) => {
+  backendInterface.goingToBar(bar_id, token)
+  .then(({ success, message }) => {
+    if(success) {
+      notifyGood('it worked', dispatch)
+    } else {
+      notifyError(message, dispatch)
+    }
+  })
+  .catch(() => notifyError('Was unable to set you as "going"', dispatch))
+}
+
 export {
   setSearchInput,
-  searchAction
+  searchAction,
+  setGoing
 }
