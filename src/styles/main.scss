@@ -64,11 +64,11 @@ body, html {
   outline: 0;
   background-color: $accent-light;
   margin-top: 1em;
-  padding: 0.5em;
+  padding: 0.15em 0.5em 0.15em 0.5em;
   font-size: 1.5em;
   color: #333;
   border: none;
-  border-radius: 0.5em;
+  border-radius: 0.25em;
 }
 
 .nightlife-button:hover {
@@ -79,6 +79,19 @@ body, html {
 .nightlife-button:focus {
   background-color: $accent-dark;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.4), 0 0px 20px 0 rgba(0, 0, 0, 0.4);
+}
+
+/*-- Small Devices --*/
+@media screen and (max-width: 700px) {
+  .nightlife-button {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .nightlife-button {
+    font-size: 15px;
+  }
 }
 
 .label {
@@ -130,7 +143,7 @@ body, html {
   }
 }
 
-@media screen and (max-width: 319px) {
+@media screen and (max-width: 330px) {
   .nightlife-input {
     font-size: 1em;
   }
@@ -172,7 +185,6 @@ body, html {
   text-align: center;
   color: $black;
   border: 1px solid $black
-
 }
 
 .good {
@@ -193,6 +205,94 @@ body, html {
 /*------------------ Already Logged In ----------------*/
 .already-logged-in {
   text-align: center;
+}
+
+/*------------------ Search ----------------*/
+.bar-container {
+  display: flex;
+}
+
+.bar-thumb {
+  width: 150px;
+  -webkit-filter: grayscale(40%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(40%);
+  border-radius: 0.5em;
+}
+
+.bar-card {
+  display: flex;
+  flex: 8;
+  flex-direction: column;
+  padding: 0 1em 1em 1em;
+  border: solid 1px $black;
+  font-size: 25px;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bar-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.pad {
+  flex: 3;
+}
+
+.bar-title {
+  font-size: 2em;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.image-container {
+  text-align: right;
+}
+
+.bar-status {
+  padding-left: 1em;
+  text-align: left;
+}
+
+/*-- Small Devices -- */
+@media screen and (max-width: 700px) {
+  .pad {
+    flex: 0;
+  }
+
+  .bar-card {
+    border: none;
+    font-size: 18px;
+    margin-bottom: 0px;
+    box-shadow: none;
+  }
+
+  .bar-title {
+    font-size: 1.5em;
+  }
+
+}
+
+@media screen and (max-width: 330px) {
+  .pad {
+    flex: 0;
+  }
+
+  .bar-card {
+    border: none;
+    font-size: 15px;
+    margin-bottom: 0px;
+    box-shadow: none;
+  }
+
+  .bar-title {
+    font-size: 20px;
+  }
+
+  .bar-thumb {
+    width: 80px;
+    border-radius: 0.5em;
+  }
 }
 
 /*------------------ Bottom Bar ----------------*/

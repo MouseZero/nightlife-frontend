@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
+import BusinessResult from './BusinessResult'
 
 class DefaultPage extends React.Component {
   constructor(props) {
@@ -9,12 +10,17 @@ class DefaultPage extends React.Component {
   }
 
   render() {
-    if (_.isEmpty(this.props.businesses)) {
+    const businesses = this.props.businesses
+    if (_.isEmpty(businesses)) {
       return (<div>There are no search Results</div>)
     }
     return (
       <div>
-        Search Worked
+        {businesses.map((x,i) => {
+          return (
+            <BusinessResult key={i} info={x}/>
+          )
+        })}
       </div>
     )
   }
