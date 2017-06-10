@@ -3,6 +3,16 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { setGoing } from '../actions/search'
 
+const goingAndNotGoingIndicator = (your_going) => {
+  if (your_going) {
+    return (
+      <div>
+        <i className="fa fa-check green" aria-hidden="true"></i> Going
+      </div>
+    )
+  }
+}
+
 const BusinessResult = ({info, setGoing, token}) => {
   const {
     id,
@@ -10,7 +20,8 @@ const BusinessResult = ({info, setGoing, token}) => {
     display_phone,
     image_url,
     is_closed,
-    users_going
+    users_going,
+    your_going
   } = info
   return (
     <div className="bar-container">
@@ -28,6 +39,9 @@ const BusinessResult = ({info, setGoing, token}) => {
                 Users Going {users_going}
               </div>
               <div>
+                {goingAndNotGoingIndicator(your_going)}
+              </div>
+              <div>
                 Phone: {display_phone}
               </div>
               <div>
@@ -38,8 +52,7 @@ const BusinessResult = ({info, setGoing, token}) => {
                   className="nightlife-button"
                   onClick={() => setGoing(id, token)}
                 >
-                Going
-                </button>
+                Going                 </button>
               </div>
             </div>
           </div>
