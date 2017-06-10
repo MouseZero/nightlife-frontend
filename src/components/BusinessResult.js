@@ -13,7 +13,7 @@ const goingAndNotGoingIndicator = (your_going) => {
   }
 }
 
-const BusinessResult = ({info, setGoing, token}) => {
+const BusinessResult = ({info, setGoing, token, key}) => {
   const {
     id,
     name,
@@ -52,7 +52,8 @@ const BusinessResult = ({info, setGoing, token}) => {
                   className="nightlife-button"
                   onClick={() => setGoing(id, token)}
                 >
-                Going                 </button>
+                Going
+                </button>
               </div>
             </div>
           </div>

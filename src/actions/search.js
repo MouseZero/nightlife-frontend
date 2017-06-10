@@ -1,5 +1,5 @@
 import backendInterface from '../api/backend-interface'
-import { notifyError, notifyGood } from './notification'
+import { notifyError } from './notification'
 
 const setSearchInput = (location) => {
   return {
@@ -12,6 +12,13 @@ const setBusinesses = (businesses) => {
   return {
     type: 'SET_BUSINESSES',
     businesses
+  }
+}
+
+const toggleGoingStatus = (barId) => {
+  return {
+    type: 'TOGGLE_GOING_STATUS',
+    barId
   }
 }
 
@@ -31,12 +38,12 @@ const setGoing = (bar_id, token) => (dispatch) => {
   backendInterface.goingToBar(bar_id, token)
   .then(({ success, message }) => {
     if(success) {
-      notifyGood('it worked', dispatch)
+      dispatch(toggleGoingStatus(bar_id))
     } else {
       notifyError(message, dispatch)
     }
   })
-  .catch(() => notifyError('Was unable to set you as "going"', dispatch))
+  .catch((e) => notifyError('Was unable to set you as "going"' + e, dispatch))
 }
 
 export {
