@@ -12,7 +12,7 @@ class DefaultPage extends React.Component {
   render() {
     const businesses = this.props.businesses
     if (_.isEmpty(businesses)) {
-      return (<div>There are no search Results</div>)
+      return (<div className="center-content">There are no search Results</div>)
     }
     return (
       <div>
