@@ -1,18 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router'
+import NightlifeButton from '../NightlifeButton'
 
 const LoginButtons = () => {
   return (
     <div className="login-group">
       <Link to="/create/user">
-        <button className="nightlife-button bottom-button">
+        <NightlifeButton>
           Create User
-        </button>
+        </NightlifeButton>
+      <span className="button-padding"/>
       </Link>
       <Link to="/login">
-        <button className="nightlife-button bottom-button">
+        <NightlifeButton>
           Login
-        </button>
+        </NightlifeButton>
       </Link>
     </div>
   )

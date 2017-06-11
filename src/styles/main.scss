@@ -97,6 +97,10 @@ body, html {
   background-color: $neg-accent-dark;
 }
 
+.button-padding {
+  padding: 0.5em;
+}
+
 /*-- Small Devices --*/
 @media screen and (max-width: 700px) {
   .nightlife-button {

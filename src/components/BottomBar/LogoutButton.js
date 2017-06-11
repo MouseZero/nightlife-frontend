@@ -1,13 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { logout } from '../../actions/user'
+import NightlifeButton from '../NightlifeButton'
 
 const LogoutButton = ({ logMeOut }) => {
   return (
     <div className="login-group">
-      <button className="nightlife-button bottom-button" onClick={logMeOut}>
+      <NightlifeButton isAltButton={true} onClick={logMeOut}>
         Logout
-      </button>
+      </NightlifeButton>
     </div>
   )
 }
