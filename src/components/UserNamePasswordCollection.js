@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { browserHistory } from 'react-router'
 import {
   setUserInputAction,
   setPasswordInputAction
@@ -17,6 +18,7 @@ class UserNamePasswordCollection extends React.Component {
     e.preventDefault()
     const { onSubmit, userName, password } = this.props
     onSubmit(userName, password)
+    browserHistory.push('/')
   }
 
   render() {
