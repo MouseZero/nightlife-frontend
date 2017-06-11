@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { search } from '../actions/user'
 import { setSearchInput, searchAction } from '../actions/search'
+import NightlifeButton from './NightlifeButton'
 
 class TopBar extends React.Component {
   constructor(props){
@@ -31,12 +32,19 @@ class TopBar extends React.Component {
         </div>
         <div className="nightlife-input-group">
           <form onSubmit={this.onSubmit}>
-            <input
-              id="bar-search"
-              className="nightlife-input"
-              placeholder="City"
-              onChange={this.setInputUpdate}
-            />
+            <div>
+              <input
+                id="bar-search"
+                className="nightlife-input"
+                placeholder="Location"
+                onChange={this.setInputUpdate}
+              />
+            </div>
+            <div>
+              <NightlifeButton onClick={this.onSubmit}>
+                Search
+              </NightlifeButton>
+            </div>
           </form>
         </div>
       </div>
