@@ -5,6 +5,7 @@ import {
   setUserInputAction,
   setPasswordInputAction
  } from '../actions/inputs'
+ import NightlifeButton from './NightlifeButton'
 
 class UserNamePasswordCollection extends React.Component {
   constructor(props) {
@@ -38,11 +39,10 @@ class UserNamePasswordCollection extends React.Component {
             className="nightlife-input"
             type="password"
           />
-          <button
-            id="submit"
+          <NightlifeButton
             className="nightlife-button"
             onSubmit={this.onSubmit}>{this.props.buttonText}
-          </button>
+          </NightlifeButton>
         </form>
       </div>
     )
