@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { setGoing } from '../actions/search'
+import NightlifeButton from './NightlifeButton'
 
 const goingAndNotGoingIndicator = (your_going) => {
   if (your_going) {
@@ -48,12 +49,18 @@ const BusinessResult = ({info, setGoing, token, key}) => {
                 {(is_closed) ? 'Closed' : 'Open'}
               </div>
               <div>
-                <button
+                <NightlifeButton
+                  onClick={() => setGoing(id, token)}
+                  isAltButton={your_going}
+                >
+                  Going
+                </NightlifeButton>
+                {/*<button
                   className="nightlife-button"
                   onClick={() => setGoing(id, token)}
                 >
                 Going
-                </button>
+                </button>*/}
               </div>
             </div>
           </div>

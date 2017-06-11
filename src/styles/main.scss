@@ -6,6 +6,10 @@ $accent-light: #84A987;
 $accent-medium: #648f67;
 $accent-dark: #5c835f;
 
+$neg-accent-light: #a984a6;
+$neg-accent-medium: #8f648b;
+$neg-accent-dark: #785475;
+
 body, html {
   background-color: $black;
   color: #999;
@@ -79,6 +83,18 @@ body, html {
 .nightlife-button:focus {
   background-color: $accent-dark;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.4), 0 0px 20px 0 rgba(0, 0, 0, 0.4);
+}
+
+.alt-btn {
+  background-color: $neg-accent-light;
+}
+
+.alt-btn:hover {
+  background-color: $neg-accent-medium;
+}
+
+.alt-btn:focus {
+  background-color: $neg-accent-dark;
 }
 
 /*-- Small Devices --*/
