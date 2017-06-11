@@ -29,6 +29,10 @@ body, html {
   text-align: center;
 }
 
+.top-padding-small {
+  padding-top: 0.25em;
+}
+
 /*------------------ Top Menu ----------------*/
 .top-bar {
   background-color: $light;
@@ -327,11 +331,20 @@ body, html {
 
 /*------------------ Bottom Bar ----------------*/
 #bottom-bar-container {
+  padding-top: 0.5em;
   background-color: $black;
 }
 
-.bottom-button {
-  margin: 1em 0.5em 2em 0.5em;
+@media screen and (max-width: 700px) {
+  #bottom-bar-container {
+    padding-top: 0.35em;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  #bottom-bar-container {
+    padding-top: 0.15em;
+  }
 }
 
 

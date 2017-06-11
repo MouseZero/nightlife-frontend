@@ -48,7 +48,7 @@ const BusinessResult = ({info, setGoing, token, key}) => {
               <div>
                 {(is_closed) ? 'Closed' : 'Open'}
               </div>
-              <div>
+              <div className="top-padding-small">
                 <NightlifeButton
                   onClick={() => setGoing(id, token)}
                   isAltButton={your_going}
