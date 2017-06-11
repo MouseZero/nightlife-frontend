@@ -35,6 +35,10 @@ const searchAction = (location, token) => (dispatch) => {
 }
 
 const setGoing = (bar_id, token) => (dispatch) => {
+  if (!token) {
+    notifyError('Please login', dispatch)
+    return
+  }
   backendInterface.goingToBar(bar_id, token)
   .then(({ success, message }) => {
     if(success) {

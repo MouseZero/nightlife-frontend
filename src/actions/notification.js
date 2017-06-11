@@ -21,7 +21,7 @@ const _resetNotificationInTime = (dispatch) => new Promise((resolve) => {
   setTimeout(() => {
     dispatch(notificationClear())
     resolve('success')
-  }, 5000)
+  }, 7000)
 })
 
 const _notify = (message, notificationType, dispatch) => {
