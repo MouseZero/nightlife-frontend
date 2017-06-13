@@ -55,12 +55,6 @@ const BusinessResult = ({info, setGoing, token, key}) => {
                 >
                   Going
                 </NightlifeButton>
-                {/*<button
-                  className="nightlife-button"
-                  onClick={() => setGoing(id, token)}
-                >
-                Going
-                </button>*/}
               </div>
             </div>
           </div>
