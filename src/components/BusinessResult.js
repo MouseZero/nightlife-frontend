@@ -14,7 +14,7 @@ const goingAndNotGoingIndicator = (your_going) => {
   }
 }
 
-const BusinessResult = ({info, setGoing, token, key}) => {
+const BusinessResult = ({info, setGoing, token}) => {
   const {
     id,
     name,

@@ -12,7 +12,7 @@ let TOKEN = ''
 These test have a temporal coupling meaning some of them
 have to be in order.*/
 
-context('Warning -- temporal coupling', function() {
+describe('Warning -- temporal coupling', function() {
   this.timeout(20000)
   describe('backend-interface', () => {
     describe('createUser', () => {
