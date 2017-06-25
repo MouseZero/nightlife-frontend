@@ -9,9 +9,11 @@ import {chalkProcessing} from './chalkConfig'
 
 console.log(chalkProcessing('Opening production build...'))
 
+const PORT = process.env.PORT || 4000
+
 // Run Browsersync
 browserSync({
-  port: 4000,
+  port: PORT,
   ui: {
     port: 4001
   },
