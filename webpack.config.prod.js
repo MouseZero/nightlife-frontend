@@ -9,6 +9,7 @@ import path from 'path'
 
 const GLOBALS = {
   'process.env.NODE_ENV': JSON.stringify('production'),
+  'process.env.BACKEND_URL': JSON.stringify(process.env.BACKEND_URL),
   __DEV__: false
 }
 
