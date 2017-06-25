@@ -1,4 +1,4 @@
-import { search, goingToBar } from '../api/backend-interface'
+import backendInterface from '../api/backend-interface'
 import { notifyError } from './notification'
 
 const setSearchInput = (location) => {
@@ -23,7 +23,7 @@ const toggleGoingStatus = (barId) => {
 }
 
 const searchAction = (location, token) => (dispatch) => {
-  search(location, token)
+  backendInterface.search(location, token)
   .then(({success, result, message}) => {
     if (success) {
       dispatch(setBusinesses(result.businesses))
@@ -39,7 +39,7 @@ const setGoing = (bar_id, token) => (dispatch) => {
     notifyError('Please login', dispatch)
     return
   }
-  goingToBar(bar_id, token)
+  backendInterface.goingToBar(bar_id, token)
   .then(({ success, message }) => {
     if(success) {
       dispatch(toggleGoingStatus(bar_id))
